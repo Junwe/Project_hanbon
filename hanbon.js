@@ -13,13 +13,24 @@ function OnTranslate()
     
     resultText = []
     koreatext.forEach(element => {
-        const letter = getConstantVowel(element);
-        resultText.push(letter);
-
-        JapaneseText.value += getJapnaeseToKorean(letter);
+        let letter = getConstantVowel(element);
+        if(letter.s == undefined)
+        {
+            JapaneseText.value += element;
+        }
+        else
+        {
+            resultText.push(letter);
+            JapaneseText.value += getJapnaeseToKorean(letter);
+        }
     });
 
     console.log(resultText);
+}
+
+function Test(letter)
+{
+    console.log(letter +" : " + letter.charCodeAt(0));
 }
 
 function getJapnaeseToKorean(letter)
@@ -27,7 +38,6 @@ function getJapnaeseToKorean(letter)
     // 행과 단을 찾아야한다.
     // 행은 자음
     // 단은 모음이다.
-
     const firstLetter = getSplitSecondLltter(letter);
     const thridIndex = compareThirdLetter[letter.t]
 
@@ -43,18 +53,40 @@ function getJapnaeseToKorean(letter)
 
 function getSplitSecondLltter(letter)
 {
+    if(letter.f == 'ㅊ')
+    {
+        if(letter.s == 'ㅏ')
+        letter.s = "ㅑ";
+        else if(letter.s == 'ㅗ')
+        letter.s = "ㅛ";
+    }
+    else if(letter.f == 'ㅌ')
+    {
+        console.log("ㅌ");
+        if(letter.s == 'ㅡ' || letter.s == 'ㅜ')
+            letter.s = "ㅗㅜ";
+        else if(letter.s == 'ㅣ')
+            letter.s = "ㅔㅣ"
+    }
     let firstIndex = compareFistLetter[letter.f];
     let secIndex = compareSecLetter[letter.s];
+
     //긴 글자이다
     if(compareSecLetter[letter.s] == null)
     {
+        if(comapreSecLetter_long[letter.s] == null)
+            return "";
+
         secIndex = comapreSecLetter_long[letter.s];
         return JP_LONG_LTEER[firstIndex][secIndex];
     }
     //모음 분리 필요
-    else if(secIndex >= 10)
+    else if(compareSecLetter[letter.s] >= 10)
     {
-        return JP_NOMAL_letter[firstIndex][secIndex];
+        const FrontLetter = Math.floor(secIndex / 10);
+        const Backletter = secIndex % 10;
+
+        return JP_NOMAL_letter[firstIndex][FrontLetter] + String.fromCharCode(JP_NOMAL_letter[0][Backletter].charCodeAt(0)-1);
     }
     // 평범한 글자
     else
@@ -82,15 +114,6 @@ function getConstantVowel(kor)
         t: KOREAN_LAST_LETTER[tn]
     };
 }
-
-function TestLog()
-{
-    for(let i=0; i<KOREAN_MIDDLE_LETTER.length;++i)
-    {
-        console.log(KOREAN_MIDDLE_LETTER[i] +' : '+ KOREAN_MIDDLE_LETTER[i].charCodeAt(0));
-    }
-}
-
 
 // 모음 분리기 만들자
 init();
@@ -144,7 +167,7 @@ const compareSecLetter =
     'ㅏ':0,'ㅐ':3,'ㅒ':3,'ㅣ':1,'ㅓ':4,'ㅔ':3,
     'ㅗ':4,'ㅜ':2,'ㅡ':2,
     'ㅙ':43,'ㅚ':41,'ㅝ':24,'ㅞ':23,
-    'ㅟ':21,'ㅢ':21
+    'ㅟ':21,'ㅢ':21,"ㅗㅜ":42,"ㅔㅣ":31
 }
 // 특별 중성
 const comapreSecLetter_long =
