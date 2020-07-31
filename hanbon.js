@@ -6,6 +6,14 @@ function init()
     console.log(koreanText.value);
 }
 
+function OnCopy()
+{
+    JapaneseText.select();
+    document.execCommand('copy');
+
+    alert("복사 되었습니다. ぼくさ どぃおっすぶにだ.");
+}
+
 function OnTranslate()
 {
     JapaneseText.value = "";
@@ -26,6 +34,9 @@ function OnTranslate()
     });
 
     console.log(resultText);
+
+    JapaneseText.style.backgroundColor = "rgba(152, 27, 255, 0.615)";
+    JapaneseText.style.color = "white";
 }
 
 function Test(letter)
