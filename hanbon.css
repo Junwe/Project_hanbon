@@ -1,45 +1,80 @@
-#Translate, #Copy
+
+.txtbutton
 {
-    border :1px solid gray;
+    border :1.5px solid gray;
     background-color: rgba(0, 0,0,0);
     color: gray;
-    padding: 20px 385px;
 
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    transition: .5s;
 }
 
-#Translate:hover, #Copy:hover
+.txtbutton:hover
 {
     background-color: rgba(152, 27, 255, 0.815); 
     color: white;
     border :1.5px solid rgba(152, 27, 255, 0.815);
 }
 
-#koreanText,#JapaneseText
+.content
 {
     border :1px solid rgba(152, 27, 255, 0.815);
     color: black;
     
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 
     resize: none;
     font-size: 20px;
 
     margin-left: 50px;
-    padding: 5px;
+    margin-top: 30px;
 
+    transition: .5s;
 }
 
 h5
 {
     font-size: 20px;
     margin-left: 400px;
+}
+
+.container-Copy
+{
+    display: inline-block;
+    position: relative;
+}
+
+.container-Copy textarea
+{
+    box-sizing: border-box;
+    display: block;
+}
+
+.container-Copy button
+{
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+}
+
+.container-Translate
+{
+    display: inline-block;
+    position: relative;
+}
+
+.container-Translate textarea
+{
+    box-sizing: border-box;
+    display: block;
+}
+
+.container-Translate button
+{
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
 }

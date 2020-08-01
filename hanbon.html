@@ -2,14 +2,17 @@
     <head>
         <link rel="stylesheet" href="./hanbon.css">
     </head>
-    <body>
-            <h5>한글을 입력해주세요</h5>
-            <textarea class = "textareaGroup" id = "koreanText" name = "k_content" cols="80" rows="7"></textarea>
-            <textarea class = "textareaGroup" id = "JapaneseText" name = "j_content" cols="80" rows="7" ></textarea>
-            <p>
-                <button type = "button" id = "Translate" onclick="OnTranslate()">번역(ぼんよく)</button>
-                <button type = "button" id = "Copy"" onclick="OnCopy()">복사하기(ぼくさはぎ)</button>
-            </p> 
+    <body style="background-color: rgba(170, 43, 255, 0.05);">
+        <div class= "container-Translate">
+            <h5>한글 입력</h5>
+            <textarea id = "koreanText" class = "content" name = "k_content" cols="80" rows="7"></textarea>
+            <button type = "button" class ="txtbutton" id = "Translate" onclick="OnTranslate()">번역(ぼんよく)</button>
+        </div>
+        <div class= "container-Copy">
+            <h5>일본어 결과</h5>
+            <textarea id = "JapaneseText" class = "content" name = "j_content" cols="80" rows="7" ></textarea> 
+            <button type = "button" class ="txtbutton" id = "Copy"" onclick="OnCopy()">복사하기(ぼくさはぎ)</button>       
+        </div>   
     </body>
     <script src = "hanbon.js"></script>
 </html>

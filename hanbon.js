@@ -1,5 +1,7 @@
 const koreanText = document.querySelector("#koreanText")
 const JapaneseText = document.querySelector("#JapaneseText")
+const containerJapanese = document.querySelector(".container-Copy");
+const copyButton = document.querySelector("#Copy");
 
 function init()
 {
@@ -10,8 +12,9 @@ function OnCopy()
 {
     JapaneseText.select();
     document.execCommand('copy');
-
-    alert("복사 되었습니다. ぼくさ どぃおっすぶにだ.");
+    
+    alert("복사 되었습니다. 구글 번역으로 이동합니다.");
+    window.open('https://translate.google.co.kr/?hl=jp#view=home&op=translate&sl=auto&tl=ko&text='+JapaneseText.value, '_blank'); 
 }
 
 function OnTranslate()
@@ -35,8 +38,14 @@ function OnTranslate()
 
     console.log(resultText);
 
-    JapaneseText.style.backgroundColor = "rgba(152, 27, 255, 0.615)";
+    JapaneseText.style.backgroundColor = "rgba(152, 27, 255, 0.815)";
     JapaneseText.style.color = "white";
+
+    copyButton.style.color = "white";
+    copyButton.style.border = "1px solid white";
+    //copyButton.style.backgroundColor = "white";
+
+    containerJapanese.style.display = "inline-block";
 }
 
 function Test(letter)
