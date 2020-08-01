@@ -32,7 +32,16 @@
     margin-left: 50px;
     margin-top: 30px;
 
+    outline: none;
+    box-shadow: 0 0 3px rgba(152, 27, 255, 0.815);
+
     transition: .5s;
+}
+
+.content:focus
+{
+    outline: none;
+    box-shadow: 0 0 7px rgba(152, 27, 255, 0.815);
 }
 
 h5
