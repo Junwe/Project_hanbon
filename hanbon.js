@@ -143,6 +143,13 @@ function OnDeleteKorean()
 function OnDeleteJapanse()
 {
     JapaneseText.value = "";
+
+    
+    /*JapaneseText.style.backgroundColor = "white";
+    JapaneseText.style.color = "balck";
+
+    copyButton.style.color = "gray";
+    copyButton.style.border = "1.5px solid gray";*/
 }
 
 // 모음 분리기 만들자
