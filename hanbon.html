@@ -6,19 +6,15 @@
         <div class= "container-Translate">
             <h5>한글 입력</h5>
             <textarea id = "koreanText" class = "content" name = "k_content" cols="80" rows="7"></textarea>
-            <button type = "button" class ="txtbutton" id = "Translate" onclick="OnTranslate()">번역(ぼんよく)</button>
+            <button class ="txtbutton" id = "Translate" onclick="OnTranslate()">번역(ぼんよく)</button>
+            <button class = "DeleteButton" id ="koreanDelete" onclick="OnDeleteKorean()">X</button>
         </div>
         <div class= "container-Copy">
             <h5>일본어 결과</h5>
             <textarea id = "JapaneseText" class = "content" name = "j_content" cols="80" rows="7" ></textarea> 
-            <button type = "button" class ="txtbutton" id = "Copy"" onclick="OnCopy()">복사하기(ぼくさはぎ)&구글 번역기 이동</button>       
-        </div>   
-        <span style ="
-                width: 100px;
-                height: 50px;
-                border:1px blueviolet;
-                background: blueviolet;"
-        ></span>
-    </body>
+            <button class ="txtbutton" id = "Copy"" onclick="OnCopy()">복사하기(ぼくさはぎ)&구글 번역기 이동</button>     
+            <button class = "DeleteButton" id ="japanseDelete" onclick="OnDeleteJapanse()">X</button>  
+        </div> 
+        </body>
     <script src = "hanbon.js"></script>
 </html>

@@ -135,6 +135,16 @@ function getConstantVowel(kor)
     };
 }
 
+function OnDeleteKorean()
+{
+    koreanText.value = "";
+}
+
+function OnDeleteJapanse()
+{
+    JapaneseText.value = "";
+}
+
 // 모음 분리기 만들자
 init();
 
