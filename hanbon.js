@@ -80,9 +80,8 @@ function getSplitSecondLltter(letter)
         else if(letter.s == 'ㅗ')
         letter.s = "ㅛ";
     }
-    else if(letter.f == 'ㅌ')
+    else if(letter.f == 'ㅌ' || letter.f == 'ㄷ')
     {
-        console.log("ㅌ");
         if(letter.s == 'ㅡ' || letter.s == 'ㅜ')
             letter.s = "ㅗㅜ";
         else if(letter.s == 'ㅣ')

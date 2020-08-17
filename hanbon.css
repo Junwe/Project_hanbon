@@ -2,7 +2,7 @@
 {
     border :1px solid rgba(152, 27, 255, 0.815);
     color: black;
-    
+
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 
@@ -12,13 +12,13 @@
     resize: none;
     font-size: 20px;
 
-    margin-left: 80px;
-    margin-top: 30px;
-
     outline: none;
     box-shadow: 0 0 3px rgba(152, 27, 255, 0.815);
 
     transition: .5s;
+
+    width: 100%;
+    height: 100%;
 }
 
 .content:focus
@@ -30,8 +30,7 @@
 h5
 {
     font-size: 20px;
-    margin-left: 400px;
-    margin-top: -100px;
+    margin-left: 45%;
 }
 
 .container-Copy
@@ -39,8 +38,11 @@ h5
     display: inline-block;
     position: relative;
 
-    margin-top: 180px;
-    
+    width: 40%;
+    height: 20%;
+
+    margin-top: 5%;
+    margin-left: 5%;
 }
 
 .container-Copy textarea
@@ -53,12 +55,24 @@ h5
 {
     display: inline-block;
     position: relative;
+
+    width: 40%;
+    height: 20%;
+    
+    margin-top: 5%;
+    margin-left: 5%;
 }
 
 .container-Translate textarea
 {
     box-sizing: border-box;
     display: block;
+
+}
+
+.textareaModule
+{
+    position: relative;
 }
 
 .DeleteButton
@@ -67,10 +81,9 @@ h5
     background-color: white;
 
     position: absolute;
-    top: -30.0%;
-    right: 0.25%;
-
-
+    top: 1%;
+    right: 0.1%;
+    
     border-top-left-radius: 2.5px;
     border-bottom-left-radius: 2.5px;
 
