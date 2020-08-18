@@ -85,7 +85,9 @@ function getSplitSecondLltter(letter)
         if(letter.s == 'ㅡ' || letter.s == 'ㅜ')
             letter.s = "ㅗㅜ";
         else if(letter.s == 'ㅣ')
-            letter.s = "ㅔㅣ"
+            letter.s = "ㅔㅣ";
+        else if(letter.s == 'ㅟ')
+            letter.s = "ㅗㅜㅣ";
     }
     let firstIndex = compareFistLetter[letter.f];
     let secIndex = compareSecLetter[letter.s];
@@ -100,12 +102,25 @@ function getSplitSecondLltter(letter)
         return JP_LONG_LTEER[firstIndex][secIndex];
     }
     //모음 분리 필요
-    else if(compareSecLetter[letter.s] >= 10)
+    else if(compareSecLetter[letter.s] >= 10 && compareSecLetter[letter.s] <= 100)
     {
         const FrontLetter = Math.floor(secIndex / 10);
         const Backletter = secIndex % 10;
 
         return JP_NOMAL_letter[firstIndex][FrontLetter] + String.fromCharCode(JP_NOMAL_letter[0][Backletter].charCodeAt(0)-1);
+    }
+    else if(compareSecLetter[letter.s] >= 100)
+    {
+        const FrontLetter = Math.floor(secIndex / 100);
+        const middleLetter = Math.floor(secIndex % 100 / 10);
+        const Backletter = secIndex % 10;
+
+        console.log("FrontLetter : " + FrontLetter);
+        console.log("middleLetter : " + middleLetter);
+        console.log("Backletter : " + Backletter);
+
+        return JP_NOMAL_letter[firstIndex][FrontLetter] + String.fromCharCode(JP_NOMAL_letter[0][middleLetter].charCodeAt(0)-1)
+        +String.fromCharCode(JP_NOMAL_letter[0][Backletter].charCodeAt(0)-1);
     }
     // 평범한 글자
     else
@@ -203,7 +218,7 @@ const compareSecLetter =
     'ㅏ':0,'ㅐ':3,'ㅒ':3,'ㅣ':1,'ㅓ':4,'ㅔ':3,
     'ㅗ':4,'ㅜ':2,'ㅡ':2,
     'ㅙ':43,'ㅚ':41,'ㅝ':24,'ㅞ':23,
-    'ㅟ':21,'ㅢ':21,"ㅗㅜ":42,"ㅔㅣ":31
+    'ㅟ':21,'ㅢ':21,"ㅗㅜ":42,"ㅔㅣ":31,'ㅗㅜㅣ':421
 }
 // 특별 중성
 const comapreSecLetter_long =
